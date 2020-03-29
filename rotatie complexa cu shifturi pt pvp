@@ -1,0 +1,43 @@
+x
+F1::Suspend ; ctrl + F1   ; Activate or deactivate script
+#ifWinActive World of Warcraft  ; Only run if window 'World of Warcraft' is active
+{
+$2::  ; If 2 is pressed
+$^2:: ; If 2+control is pressed
+$+2:: ; If 2+shift is pressed
+$!2:: ; If 2+alt is pressed
+Loop ; If any of the above is true then loop below
+     {
+if not GetKeyState("2", "P") ; If 2 is not pressed then break the loop
+break
+if GetKeyState("LCtrl", "P") ; If left control is pressed then send control+2
+Send ^e
+else if GetKeyState("LShift", "P") ; If left shift is pressed then send shift+2
+Send +e
+else if GetKeyState("LAlt", "P") ; If left alt is pressed then send alt+2
+Send !2
+else
+Send 2 ; If 2 is pressed with no other modifiers send 2
+sleep 80 ; Time in milliseconds between key repeats
+}
+return
+$4::  ; If 4 is pressed
+$^4:: ; If 4+control is pressed
+$+4:: ; If 4+shift is pressed
+$!4:: ; If 4+alt is pressed
+Loop ; If any of the above is true then loop below
+     {
+if not GetKeyState("4", "P") ; If 4 is not pressed then break the loop
+break
+if GetKeyState("LCtrl", "P") ; If left control is pressed then send control+4
+Send ^e
+else if GetKeyState("LShift", "P") ; If left shift is pressed then send shift+4
+Send +e
+else if GetKeyState("LAlt", "P") ; If left alt is pressed then send alt+4
+Send !4
+else
+Send 4 ; If 4 is pressed with no other modifiers send 4
+sleep 80 ; Time in milliseconds between key repeats
+}
+return
+}
